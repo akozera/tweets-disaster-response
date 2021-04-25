@@ -30,6 +30,8 @@ def load_data(database_filepath):
        'weather_related', 'floods', 'storm', 'fire', 'earthquake', 'cold',
        'other_weather', 'direct_report']
 
+    df.loc[df['related'] > 1, 'related'] = 1
+
     X = df['message'].values
     Y = df[category_names].values
     
